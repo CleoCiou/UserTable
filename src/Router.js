@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '/UserTable/',
     name: 'Require',
     component: Require,
     meta: {
@@ -17,7 +17,7 @@ const routes = [
     }
   },
   {
-    path: '/UserTable',
+    path: '/UserTable/UserTable',
     name: 'UserTable',
     component: UserTable,
     meta: {
@@ -26,7 +26,7 @@ const routes = [
     }
   },
   {
-    path: '/Profile',
+    path: '/UserTable/Profile',
     name: 'Profile',
     component: Profile,
     meta: {
