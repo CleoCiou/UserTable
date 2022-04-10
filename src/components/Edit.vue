@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     updateUser() {
-      if (this.userName.value === '' || this.citys.value === '') return;
+      if (!this.userName.value || !this.citys.value) return;
       const info = {
         id: this.id,
         name: this.userName.value,
@@ -59,7 +59,7 @@ export default {
       this.$emit('update-user', info);
     },
     addUser() {
-      if (this.userName.value === '' || this.citys.value === '') return;
+      if (!this.userName.value || !this.citys.value) return;
       const info = {
         id: v4(),
         name: this.userName.value,
