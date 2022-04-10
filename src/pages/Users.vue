@@ -28,27 +28,32 @@ export default {
     }
   },
   methods: {
+    // TODO catch selected user data from UserTable component
     setSelectIdx(idx) {
       this.selectedIdx = idx;
     },
+    // TODO catch action from Edit component
+    // add | update | delete user
     userHandler(updateUser) {
-      // 刪除使用者
+      // delete user
       if (typeof updateUser === 'string') {
         this.userList = this.userList.filter( user => user.id !== updateUser );
         this.selectedIdx = -1;
         return
       }
-      // 新增 | 修改
+      // add | update user
       const user = this.userList.filter( user => user.id !== updateUser.id );
       this.userList = [updateUser, ...user];
       this.selectedIdx = 0;
     }
   },
   computed: {
+    // TODO pass selected user data to Edit component
     selectedData() {
       if (this.selectedIdx === -1) return false
       return this.userList[this.selectedIdx];
     },
+    // TODO pass userList to UserTable component
     getUserList() {
       return this.userList;
     }

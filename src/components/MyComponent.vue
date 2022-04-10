@@ -1,7 +1,7 @@
 <template>
-  <MySelect v-if="getComponent === 'select'" :component="component" @update-value="updateValue"  />
-  <MyRadio v-else-if="getComponent === 'radio'" :component="component" @update-value="updateValue"  />
-  <MyText v-else-if="getComponent === 'text'" :component="component" @update-value="updateValue" />
+  <MySelect v-if="getComponent === 'select'" :component="component"/>
+  <MyRadio v-else-if="getComponent === 'radio'" :component="component"/>
+  <MyText v-else-if="getComponent === 'text'" :component="component"/>
   <p v-else style="color: red">error</p>
 </template>
 
@@ -14,6 +14,8 @@ export default {
   props: {
     component: {
       type: Object,
+      // seems like it's not use...
+      // WHYYYYYYYYYY!!!
       default: function() {
         return {
           // -- common
@@ -40,11 +42,6 @@ export default {
       }
     }
   },
-  methods: {
-    updateValue(newComponent) {
-      this.component = newComponent;
-    }
-  },
   computed: {
     getComponent() {
       return this.component.type;
@@ -57,7 +54,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

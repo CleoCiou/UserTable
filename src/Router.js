@@ -1,13 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Require from './pages/Require';
-import UserTable from './pages/UserTable';
+import Users from './pages/Users';
 import Profile from './pages/Profile';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
+    // git hub root path
     path: '/UserTable/',
     name: 'Require',
     component: Require,
@@ -17,12 +18,12 @@ const routes = [
     }
   },
   {
-    path: '/UserTable/UserTable',
-    name: 'UserTable',
-    component: UserTable,
+    path: '/UserTable/Users',
+    name: 'Users',
+    component: Users,
     meta: {
-      title: 'UserTable',
-      description: 'UserTable page'
+      title: 'Users',
+      description: 'Users page'
     }
   },
   {

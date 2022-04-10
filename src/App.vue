@@ -2,13 +2,14 @@
 import router from './Router';
 
 // pages
-import UserTable from './pages/UserTable';
+import Users from './pages/Users';
 import Profile from './pages/Profile';
 
 // components
 import Header from './components/Header';
 
 router.beforeEach((to, from, next) => {
+  // change title and description
   if (to.meta.title) {
     document.title = to.meta.title;
   }
@@ -24,16 +25,18 @@ router.beforeEach((to, from, next) => {
 export default {
   router,
   components: {
-    UserTable,
+    Users,
     Profile,
     Header
   },
   data() {
     return {
-      theme: 'dark-theme'
+      // default theme style
+      theme: 'light-theme'
     }
   },
   methods: {
+    // TODO change theme when button on click in Header
     changeTheme(theme) {
       this.theme = theme;
     }
@@ -42,8 +45,8 @@ export default {
 </script>
 
 <template>
-  <div :class="(theme === 'dark-theme') ? 'light-theme' : 'dark-theme'">
-    <Header :theme="theme" @change-theme="changeTheme" />
+  <div :class="theme">
+    <Header :theme="(theme === 'dark-theme') ? 'light-theme' : 'dark-theme'" @change-theme="changeTheme" />
     <router-view />
   </div>
 </template>

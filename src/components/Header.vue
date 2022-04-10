@@ -9,7 +9,7 @@
     </div>
     <nav>
       <router-link :to="{name: 'Require'}"> Home </router-link> |
-      <router-link :to="{name: 'UserTable'}"> UserTable </router-link> |
+      <router-link :to="{name: 'Users'}"> UserTable </router-link> |
       <router-link :to="{name: 'Profile'}"> Profile </router-link>
     </nav>
   </header>
@@ -19,9 +19,10 @@
 export default {
   props: ['theme'],
   methods: {
+    // TODO change button innerText and pass to App component
     changeTheme(e) {
-      e.target.innerText = (e.target.innerText === 'dark-theme') ? 'light-theme' : 'dark-theme'
       this.$emit('change-theme', e.target.innerText);
+      e.target.innerText = (e.target.innerText === 'dark-theme') ? 'light-theme' : 'dark-theme'
     }
   }
 }

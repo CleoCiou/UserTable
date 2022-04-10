@@ -49,6 +49,9 @@ export default {
     }
   },
   methods: {
+    // TODO update user when click update after select user
+    // select user data will be passed from User which passed from UserTable component
+    // textbox value and select value must not empty
     updateUser() {
       if (!this.userName.value || !this.citys.value) return;
       const info = {
@@ -58,6 +61,8 @@ export default {
       }
       this.$emit('update-user', info);
     },
+    // TODO add user when click add btn
+    // textbox value and select value must not empty
     addUser() {
       if (!this.userName.value || !this.citys.value) return;
       const info = {
@@ -67,15 +72,17 @@ export default {
       }
       this.$emit('add-user', info);
     },
+    // TODO delete user when click delete btn after select user
     deleteUser() {
       if (!this.selectedData) return
       this.$emit('delete-user', this.id);
     }
   },
   watch: {
+    // TODO update textbox(userName) and select(city) when click different user
     selectedData() {
       const {id, name, city} = this.selectedData;
-      this.id = id
+      this.id = id;
       this.userName.value = name;
       this.citys.value = city;
     }
