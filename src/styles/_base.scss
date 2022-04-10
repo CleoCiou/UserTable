@@ -1,0 +1,74 @@
+@import './styles/reset.css';
+
+$borderRadius: .5em;
+
+$light-bg: #eee;
+$light-font: #333;
+$dark-bg: #333;
+$dark-font: #eee;
+
+$light-active-bg: #555;
+$light-active-font: #eee;
+$dark-active-bg: #aaa;
+$dark-active-font: #333;
+
+* {
+  box-sizing: border-box;
+  a {
+      text-decoration: none;
+  }
+
+  button {
+    padding: 0.5em;
+    margin: 0.1em;
+    border: none;
+    border-radius: $borderRadius;
+    box-shadow: #888 1px 1px 3px 0;
+    cursor: pointer;
+  }
+
+  input, select {
+    border-radius: $borderRadius;
+    padding: 0.5em;
+    border: none;
+    box-shadow: #888 1px 1px 3px 0;
+  }
+}
+
+@mixin theme($light) {
+  @if $light {
+    background-color: $light-bg;
+    color: $light-font;
+
+    a {
+      color: $light-font;
+    }
+
+    button {
+      background-color: $dark-bg;
+      color: $dark-font;
+    }
+
+    .active {
+      background-color: $light-active-bg;
+      color: $light-active-font;
+    }
+  }
+  @else {
+    background-color: $dark-bg;
+    color: $dark-font;
+
+    a {
+      color: $dark-font;
+    }
+
+    button {
+      background-color: $light-bg;
+      color: $light-font;
+    }
+    .active {
+      background-color: $dark-active-bg;
+      color: $dark-active-font;
+    }
+  }
+}
